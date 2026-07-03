@@ -7,7 +7,7 @@ Streaming with word-level timestamps: `stream()` splits input into sentences and
 ## Installation
 
 ```bash
-pip install livekit-plugins-speechify
+pip install speechify-livekit
 ```
 
 ## Authentication

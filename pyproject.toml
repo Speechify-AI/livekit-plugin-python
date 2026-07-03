@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "livekit-plugins-speechify"
+name = "speechify-livekit"
 dynamic = ["version"]
 description = "Speechify plugin for LiveKit Agents"
 readme = "README.md"
