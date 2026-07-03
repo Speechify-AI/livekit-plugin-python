@@ -20,14 +20,5 @@ TTSModels = Literal[
     "simba-3.0",
 ]
 
-# wav is omitted deliberately: the streaming endpoint negotiates the container
-# via the HTTP Accept header, which only accepts mp3/ogg/aac/pcm.
-TTSEncoding = Literal[
-    "mp3_24000",
-    "ogg_24000",
-    "aac_24000",
-    "pcm_24000",
-]
-
 VoiceType = Literal["shared", "personal"]
 Gender = Literal["male", "female", "neutral"]

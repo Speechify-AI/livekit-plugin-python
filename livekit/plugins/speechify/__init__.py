@@ -21,13 +21,14 @@ https://docs.speechify.com/ for API details.
 from livekit.agents import Plugin
 
 from .log import logger
-from .models import TTSEncoding, TTSModels
-from .tts import DEFAULT_VOICE_ID, TTS
+from .models import TTSModels
+from .tts import DEFAULT_VOICE_ID, TTS, ChunkedStream, SynthesizeStream
 from .version import __version__
 
 __all__ = [
     "TTS",
-    "TTSEncoding",
+    "ChunkedStream",
+    "SynthesizeStream",
     "TTSModels",
     "DEFAULT_VOICE_ID",
     "__version__",
