@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/Speechify-AI/livekit-plugin-python/compare/speechify-livekit-v0.0.2...speechify-livekit-v0.0.3) (2026-07-03)
+
+
+### Bug Fixes
+
+* use setup-uv provided venv in publish workflow ([3658aa4](https://github.com/Speechify-AI/livekit-plugin-python/commit/3658aa40f9602f6988d2c5f29d54c4d2018840f1))
+
 ## [0.0.2](https://github.com/Speechify-AI/livekit-plugin-python/compare/speechify-livekit-v0.0.1...speechify-livekit-v0.0.2) (2026-07-03)
 
 
