@@ -28,6 +28,14 @@ Documentation = "https://docs.livekit.io"
 Website = "https://speechify.com/"
 Source = "https://github.com/Speechify-AI/livekit-plugin-python"
 
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = ["plugin: mark a test as belonging to a specific plugin"]
+
 [tool.hatch.version]
 path = "livekit/plugins/speechify/version.py"
 
