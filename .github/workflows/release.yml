@@ -33,6 +33,15 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           python-version: '3.12'
+      - run: uv pip install --system -e . pytest pytest-asyncio ruff mypy
+      - name: Lint
+        run: |
+          ruff check --line-length 100 --target-version py310 --select E,W,F,I,B,C4,UP livekit/ tests/
+          ruff format --line-length 100 --check livekit/ tests/
+      - name: Type check
+        run: mypy livekit/plugins/speechify/tts.py --ignore-missing-imports
+      - name: Test
+        run: pytest tests/ -q
       - name: Build
         run: uv build
       - name: Publish to PyPI
