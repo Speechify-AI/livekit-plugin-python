@@ -13,16 +13,25 @@
 # limitations under the License.
 
 """Speechify plugin for LiveKit Agents
-This is a stubbed example plugin.
+
+Provides Speechify text-to-speech for LiveKit voice agents. See
+https://docs.speechify.com/ for API details.
 """
 
 from livekit.agents import Plugin
 
 from .log import logger
+from .models import TTSEncoding, TTSModels
+from .tts import DEFAULT_VOICE_ID, TTS
 from .version import __version__
 
-# Import TTS, STT, LLM classes here as they are implemented
-# from .tts import TTS
+__all__ = [
+    "TTS",
+    "TTSEncoding",
+    "TTSModels",
+    "DEFAULT_VOICE_ID",
+    "__version__",
+]
 
 
 class SpeechifyPlugin(Plugin):
@@ -31,3 +40,11 @@ class SpeechifyPlugin(Plugin):
 
 
 Plugin.register_plugin(SpeechifyPlugin())
+
+_module = dir()
+NOT_IN_ALL = [m for m in _module if m not in __all__]
+
+__pdoc__ = {}
+
+for n in NOT_IN_ALL:
+    __pdoc__[n] = False
