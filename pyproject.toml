@@ -24,9 +24,10 @@ classifiers = [
 dependencies = ["livekit-agents>=1.6.4", "speechify-api>=2.0.0"]
 
 [project.urls]
-Documentation = "https://docs.livekit.io"
+Documentation = "https://docs.speechify.ai"
 Website = "https://speechify.com/"
 Source = "https://github.com/Speechify-AI/livekit-plugin-python"
+Issues = "https://github.com/Speechify-AI/livekit-plugin-python/issues"
 
 [dependency-groups]
 dev = ["pytest>=8", "pytest-asyncio>=0.24"]
