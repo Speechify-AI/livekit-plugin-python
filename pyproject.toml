@@ -9,7 +9,7 @@ description = "Speechify plugin for LiveKit Agents"
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10.0"
-authors = [{ name = "Speechify", email = "hello@speechify.com" }]
+authors = [{ name = "Speechify", email = "hello@speechify.ai" }]
 keywords = ["voice", "ai", "realtime", "audio", "video", "livekit", "webrtc", "speechify", "tts"]
 classifiers = [
     "Intended Audience :: Developers",
@@ -25,7 +25,7 @@ dependencies = ["livekit-agents>=1.6.4", "speechify-api>=2.0.0"]
 
 [project.urls]
 Documentation = "https://docs.speechify.ai"
-Website = "https://speechify.com/"
+Website = "https://speechify.ai"
 Source = "https://github.com/Speechify-AI/livekit-plugin-python"
 Issues = "https://github.com/Speechify-AI/livekit-plugin-python/issues"
 

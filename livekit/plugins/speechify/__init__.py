@@ -15,7 +15,7 @@
 """Speechify plugin for LiveKit Agents
 
 Provides Speechify text-to-speech for LiveKit voice agents. See
-https://docs.speechify.com/ for API details.
+https://docs.speechify.ai for API details.
 """
 
 from livekit.agents import Plugin
