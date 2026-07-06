@@ -1,13 +1,15 @@
-# Speechify plugin for LiveKit Agents
+# Speechify plugin for LiveKit Agents (Python)
 
-Speechify text-to-speech for [LiveKit Agents](https://docs.livekit.io/agents/). Built on the official [`speechify-api`](https://pypi.org/project/speechify-api/) SDK.
+Speechify text-to-speech for [LiveKit Agents](https://docs.livekit.io/agents/), maintained by Speechify.
 
-Streaming with word-level timestamps: `stream()` splits input into sentences and issues one `/audio/speech` request per sentence, emitting audio and aligned word timestamps as each sentence completes — near-streaming time-to-first-audio plus word marks (`streaming` and `aligned_transcript` capabilities).
+> **This repository is the maintenance source for the plugin. Distribution is handled by LiveKit.**
+>
+> The plugin ships inside the [`livekit/agents`](https://github.com/livekit/agents) monorepo and is published to PyPI by LiveKit as [`livekit-plugins-speechify`](https://pypi.org/project/livekit-plugins-speechify/). This repo mirrors that code so Speechify can maintain it, triage issues, and propose changes upstream. Bugs and contributions specific to the Speechify plugin are welcome here; releases are cut by LiveKit.
 
 ## Installation
 
 ```bash
-pip install speechify-livekit
+pip install livekit-plugins-speechify
 ```
 
 ## Authentication
@@ -29,7 +31,7 @@ from livekit.plugins import speechify
 session = AgentSession(
     tts=speechify.TTS(
         voice_id="jack",
-        model="simba-english",
+        model="simba-3.0",
     ),
 )
 ```
@@ -48,4 +50,10 @@ session = AgentSession(
 | `base_url` | SDK default | Override the API base URL. |
 | `client` | — | Pass a preconfigured `speechify.AsyncSpeechify` client. |
 
-Audio is raw 16-bit little-endian PCM at 24 kHz mono. `simba-3.0` is recommended for the lowest time-to-first-audio.
+## How it works
+
+Built on the official [`speechify-api`](https://pypi.org/project/speechify-api/) SDK. `stream()` splits input into sentences and issues one `/audio/speech` request per sentence, emitting audio and aligned word-level timestamps as each sentence completes — near-streaming time-to-first-audio plus word marks (`streaming` and `aligned_transcript` capabilities). Audio is raw 16-bit little-endian PCM at 24 kHz mono; `simba-3.0` is recommended for the lowest time-to-first-audio.
+
+## Maintainers
+
+Maintained by Speechify. Published and distributed by LiveKit as part of [`livekit/agents`](https://github.com/livekit/agents).
