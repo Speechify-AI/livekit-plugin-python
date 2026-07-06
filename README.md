@@ -30,8 +30,8 @@ from livekit.plugins import speechify
 
 session = AgentSession(
     tts=speechify.TTS(
-        voice_id="jack",
-        model="simba-3.0",
+        voice_id="dominic_32",
+        model="simba-3.2",
     ),
 )
 ```
@@ -40,8 +40,8 @@ session = AgentSession(
 
 | Option | Default | Description |
 | --- | --- | --- |
-| `voice_id` | `"jack"` | Voice to synthesize with (see the Speechify `/v1/voices` endpoint). |
-| `model` | provider default | `simba-english`, `simba-multilingual`, or `simba-3.0`. |
+| `voice_id` | `"dominic_32"` | Voice to synthesize with (see the Speechify `/v1/voices` endpoint). |
+| `model` | provider default | `simba-english`, `simba-multilingual`, `simba-3.0`, or `simba-3.2` (default). |
 | `language` | provider default | BCP-47 code of the input, e.g. `en-US`. |
 | `loudness_normalization` | provider default | Normalize output loudness. |
 | `text_normalization` | provider default | Expand numbers/dates into words before synthesis. |
@@ -52,7 +52,17 @@ session = AgentSession(
 
 ## How it works
 
-Built on the official [`speechify-api`](https://pypi.org/project/speechify-api/) SDK. `stream()` splits input into sentences and issues one `/audio/speech` request per sentence, emitting audio and aligned word-level timestamps as each sentence completes — near-streaming time-to-first-audio plus word marks (`streaming` and `aligned_transcript` capabilities). Audio is raw 16-bit little-endian PCM at 24 kHz mono; `simba-3.0` is recommended for the lowest time-to-first-audio.
+Built on the official [`speechify-api`](https://pypi.org/project/speechify-api/) SDK. `stream()` splits input into sentences and issues one `/audio/speech` request per sentence, emitting audio and aligned word-level timestamps as each sentence completes — near-streaming time-to-first-audio plus word marks (`streaming` and `aligned_transcript` capabilities). Audio is raw 16-bit little-endian PCM at 24 kHz mono; `simba-3.2` is the default and recommended for the lowest time-to-first-audio.
+
+## Run it locally
+
+A smoke runner exercises both synthesis paths against the live API (no LiveKit room needed), writes WAV files, and prints word timestamps + time-to-first-audio:
+
+```bash
+export SPEECHIFY_API_KEY="your-api-key"
+pip install -e .
+python scripts/synthesize.py "Hello from Speechify."
+```
 
 ## Maintainers
 

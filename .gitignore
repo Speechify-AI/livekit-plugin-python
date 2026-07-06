@@ -15,3 +15,6 @@ build/
 .coverage
 .mypy_cache/
 .ruff_cache/
+
+# smoke runner output
+*.wav
